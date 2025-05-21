@@ -103,16 +103,6 @@
     .form-footer a:hover {
       color: #2563eb;
     }
-
-    .admin-info {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .admin-info a {
-      text-decoration: none;
-      color: #e63946;
-    }
   </style>
 </head>
 <body>
@@ -164,9 +154,6 @@
         <div class="form-footer text-center mt-3">
           Don't have an account? <a href="javascript:void(0)" onclick="flipToSignUp()">Sign Up</a>
         </div>
-        <div class="admin-info">
-          <p><a href="admin-login.html">Admin Login</a></p>
-        </div>
       </div>
     </div>
   </div>
@@ -194,10 +181,13 @@
     const password = document.getElementById('loginPassword').value;
 
     if (username && password) {
-      alert('Login successful!');
-      window.location.href = 'home.html';
+      if (username.toLowerCase() === 'admin') {
+        window.location.href = 'adminhome.html';
+      } else {
+        window.location.href = 'home.html';
+      }
     } else {
-      alert('Invalid username or password.');
+      alert('Please enter both username and password.');
     }
   });
 </script>

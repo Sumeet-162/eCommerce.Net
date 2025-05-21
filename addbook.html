@@ -11,12 +11,7 @@
 <body>
   <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
-    <div class="d-flex flex-column">
-      <div class="d-flex align-items-center px-3 mb-4">
-        <img src="spell-book (1).png" alt="Logo" style="width: 30px;" class="me-2">
-        <span class="fw-medium">BookMart</span>
-      </div>
-      
+    <div class="d-flex flex-column h-100">
       <div class="nav-links flex-grow-1">
         <a href="adminhome.html" class="nav-link">
           <i class="fas fa-home"></i>
@@ -43,6 +38,14 @@
           <span class="ms-2">Top Selling</span>
         </a>
       </div>
+
+      <div class="mt-auto px-3">
+        <hr>
+        <div class="nav-link">
+          <i class="fas fa-user-circle"></i>
+          <span class="ms-2">Admin</span>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -52,7 +55,6 @@
       <button class="sidebar-toggle btn btn-link" id="sidebarToggle">
         <i class="fas fa-bars"></i>
       </button>
-      
       <a class="navbar-brand d-flex align-items-center ms-3" href="adminhome.html">
         <img src="spell-book (1).png" alt="Logo" style="width: 30px;">
         <span class="ms-2">BookMart Admin</span>
@@ -76,75 +78,117 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="simple-form">
-      <div class="mb-4">
-        <h2><i class="fas fa-book me-2"></i>Add New Book</h2>
-        <p class="text-muted">Add a new book to the catalog</p>
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header bg-white py-3">
+          <h4 class="mb-0">Add New Book</h4>
+        </div>
+        <div class="card-body">
+          <form id="addBookForm">
+            <div class="row">
+              <div class="col-md-8">
+                <!-- Basic Info -->
+                <div class="mb-4">
+                  <h5 class="mb-3">Basic Information</h5>
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label for="title" class="form-label">Book Title</label>
+                      <input type="text" class="form-control" id="title" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="author" class="form-label">Author</label>
+                      <input type="text" class="form-control" id="author" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="genre" class="form-label">Genre</label>
+                      <select class="form-control" id="genre" required>
+                        <option value="">Select Genre</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Price & Stock -->
+                <div class="mb-4">
+                  <h5 class="mb-3">Price & Stock</h5>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="price" class="form-label">Price (₹)</label>
+                      <input type="number" class="form-control" id="price" min="0" step="0.01" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="stock" class="form-label">Initial Stock</label>
+                      <input type="number" class="form-control" id="stock" min="0" required>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-4">
+                  <h5 class="mb-3">Description</h5>
+                  <textarea class="form-control" id="description" rows="4" required></textarea>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <!-- Image Upload -->
+                <div class="mb-4">
+                  <h5 class="mb-3">Book Cover</h5>
+                  <div class="card">
+                    <div class="card-body text-center">
+                      <div class="mb-3">
+                        <div id="imagePreview" class="mb-3" style="display: none;">
+                          <img src="" alt="Book Cover Preview" style="max-width: 100%; height: auto;">
+                        </div>
+                        <input type="text" class="form-control" id="imageUrl" 
+                               placeholder="Enter GitHub hosted image URL">
+                      </div>
+                      <small class="text-muted">Recommended size: 400x600px</small>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Additional Details -->
+                <div class="mb-4">
+                  <h5 class="mb-3">Additional Details</h5>
+                  <div class="mb-3">
+                    <label for="isbn" class="form-label">ISBN</label>
+                    <input type="text" class="form-control" id="isbn">
+                  </div>
+                  <div class="mb-3">
+                    <label for="publisher" class="form-label">Publisher</label>
+                    <input type="text" class="form-control" id="publisher">
+                  </div>
+                  <div class="mb-3">
+                    <label for="publicationYear" class="form-label">Publication Year</label>
+                    <input type="number" class="form-control" id="publicationYear" min="1800" max="2025">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+
+            <!-- Form Actions -->
+            <div class="d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='book.html'">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Add Book
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-
-      <form id="addBookForm">
-        <div class="form-group mb-4">
-          <label for="bookTitle">Book Title</label>
-          <input type="text" class="form-control" id="bookTitle" required
-                 placeholder="Enter book title">
-        </div>
-
-        <div class="form-group mb-4">
-          <label for="author">Author</label>
-          <input type="text" class="form-control" id="author" required
-                 placeholder="Enter author name">
-        </div>
-
-        <div class="form-group mb-4">
-          <label for="genre">Genre</label>
-          <select class="form-control" id="genre" required>
-            <option value="">Select a genre</option>
-            <!-- Genres will be populated dynamically -->
-          </select>
-        </div>
-
-        <div class="form-group mb-4">
-          <label for="price">Price</label>
-          <div class="input-group">
-            <span class="input-group-text">$</span>
-            <input type="number" class="form-control" id="price" required
-                   step="0.01" min="0" placeholder="0.00">
-          </div>
-        </div>
-
-        <div class="form-group mb-4">
-          <label for="imageUrl">Book Cover Image URL</label>
-          <input type="url" class="form-control" id="imageUrl" required
-                 placeholder="Enter GitHub-hosted image URL">
-          <div class="help-text">
-            Please provide a GitHub-hosted image URL for the book cover
-          </div>
-          <div class="mt-2" id="imagePreview" style="display: none;">
-            <img src="" alt="Book cover preview" style="max-width: 150px; max-height: 200px;">
-          </div>
-        </div>
-
-        <div class="form-group mb-4">
-          <label for="description">Description</label>
-          <textarea class="form-control" id="description" rows="4"
-                    placeholder="Enter book description"></textarea>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center">
-          <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='book.html'">
-            Cancel
-          </button>
-          <button type="submit" class="btn btn-primary">
-            <i class="fas fa-plus me-2"></i>Add Book
-          </button>
-        </div>
-      </form>
     </div>
   </main>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
     // Get DOM elements
     const sidebar = document.getElementById('sidebar');
@@ -215,27 +259,11 @@
       }
     });
 
-    // Form submission handling
+    // Form submission
     document.getElementById('addBookForm').addEventListener('submit', function(e) {
       e.preventDefault();
       // Add your form submission logic here
-      // This is where you'd typically make an API call to save the book
     });
-
-    // Populate genres (you would typically fetch this from your backend)
-    function populateGenres() {
-      const genres = ['Fiction', 'Non-Fiction', 'Mystery', 'Science Fiction', 'Fantasy'];
-      const select = document.getElementById('genre');
-      genres.forEach(genre => {
-        const option = document.createElement('option');
-        option.value = genre;
-        option.textContent = genre;
-        select.appendChild(option);
-      });
-    }
-
-    // Initialize the page
-    populateGenres();
   </script>
 </body>
 </html>
