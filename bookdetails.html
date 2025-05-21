@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details - BookMart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="home.html">
+                <img src="spell-book (1).png" alt="BookMart Logo" style="width: 35px; margin-right: 10px;">
+                <span>BookMart</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <form class="search-bar mx-auto d-flex">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search books, authors, genres..." aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link cart-icon" href="getusercart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="userord.html">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="userProfile.html">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Book Details Section -->
+    <div class="container mt-5 pt-5">
+        <!-- Back Button -->
+        <a href="home.html" class="btn btn-outline-primary mb-3">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <div class="row g-4">
+            <!-- Book Images Column -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div id="bookImages" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/1984.jpg" class="d-block w-100" alt="Book Cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/1984.jpg" class="d-block w-100" alt="Back Cover">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#bookImages" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#bookImages" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Info Column -->
+            <div class="col-md-8">
+                <h1 class="mb-3">1984</h1>
+                <div class="d-flex align-items-center mb-3">
+                    <div class="me-3">
+                        <span class="text-muted">by</span>
+                        <a href="#" class="text-decoration-none">George Orwell</a>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <span class="ms-2">(4.5/5)</span>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h2 class="h5">About this book</h2>
+                    <p class="text-muted">A dystopian social science fiction novel and cautionary tale written by English author George Orwell. It was published on 8 June 1949 as Orwell's ninth and final book completed in his lifetime.</p>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-3">
+                                <small class="text-muted d-block">Price</small>
+                                <span class="h4">₹299</span>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <small class="text-muted d-block">Genre</small>
+                                <span>Fiction</span>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <small class="text-muted d-block">Pages</small>
+                                <span>328</span>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <small class="text-muted d-block">Language</small>
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex mb-4">
+                    <button class="btn btn-primary btn-lg flex-grow-1">
+                        <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                    </button>
+                    <button class="btn btn-outline-primary btn-lg">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+
+                <!-- Book Details Tabs -->
+                <ul class="nav nav-tabs" id="bookDetailTabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#description">
+                            Description
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">
+                            Reviews
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#authorInfo">
+                            Author Info
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content p-4 border border-top-0">
+                    <div class="tab-pane fade show active" id="description">
+                        <p>Nineteen Eighty-Four (also published as 1984) is a dystopian social science fiction novel and cautionary tale by English author George Orwell. It was published on 8 June 1949 by Secker and Warburg as Orwell's ninth and final book completed in his lifetime.</p>
+                    </div>
+                    <div class="tab-pane fade" id="reviews">
+                        <!-- Reviews content -->
+                        <div class="review-item mb-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                <div>
+                                    <h6 class="mb-0">John Doe</h6>
+                                    <small class="text-muted">Posted 2 days ago</small>
+                                </div>
+                            </div>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>A masterpiece that remains relevant today. The writing is brilliant and the message is powerful.</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="authorInfo">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://via.placeholder.com/100" class="rounded-circle me-3" alt="Author">
+                            <div>
+                                <h4>George Orwell</h4>
+                                <p class="text-muted mb-0">English novelist and essayist</p>
+                            </div>
+                        </div>
+                        <p>Eric Arthur Blair, better known by his pen name George Orwell, was an English novelist, essayist, journalist, and critic. His work is characterized by lucid prose, social criticism, opposition to totalitarianism, and support of democratic socialism.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Similar Books Section -->
+        <section class="my-5">
+            <h3 class="mb-4">Similar Books You Might Like</h3>
+            <div class="row g-4">
+                <!-- Similar book cards will be populated here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="text-white">About BookMart</h5>
+                    <p class="text-white-50">Your one-stop destination for all literary needs.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">About Us</a></li>
+                        <li><a href="#" class="text-white-50">Contact</a></li>
+                        <li><a href="#" class="text-white-50">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white">Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2025 BookMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">BookMart</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Book added to cart successfully!
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
