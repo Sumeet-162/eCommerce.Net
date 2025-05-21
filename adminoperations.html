@@ -3,145 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Update Order Status</title>
+  <title>Update Order Status - BookMart Admin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-      padding-top: 55px;
-    }
-
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scrollbar-width: none; /* For Firefox */
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-    .navbar {
-      background-color: #343a40;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    .backbtn {
-      width: 100px;
-    }
-
-    .navbar-brand,
-    .nav-link {
-      color: #fff !important;
-    }
-
-    .container {
-      margin-top: 80px; /* Space for fixed navbar */
-    }
-
-    .form-container {
-      width: 50%;
-    }
-
-    .text-info {
-      margin-top: 20px;
-    }
-
-    /* From Uiverse.io by csemszepp */ 
-.container1 {
-  width: 100%;
-  height: 100%;
-  --s: 82px;
-  --c1: #b2b2b2;
-  --c2: #ffffff;
-  --c3: #d9d9d9;
-
-  --_g: var(--c3) 0 120deg, #0000 0;
-  background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
-    conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
-    conic-gradient(
-      from 60deg at calc(200% / 3),
-      var(--c3) 60deg,
-      var(--c2) 0 120deg,
-      #0000 0
-    ),
-    conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
-    linear-gradient(
-      90deg,
-      var(--c1) calc(100% / 6),
-      var(--c2) 0 50%,
-      var(--c1) 0 calc(500% / 6),
-      var(--c2) 0
-    );
-  background-size: calc(1.732 * var(--s)) var(--s);
-}
-
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
 </head>
-<body class="container1">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <img src="spell-book (1).png" style="width: 35px; margin-right: 10px;" alt="">
-      <a class="navbar-brand" href="adminhome.html"><b>BookMart</b> </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-        <!-- Sidebar links for small screens -->
-        <ul class="navbar-nav d-lg-none">
-          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="allorders.html">Orders</a></li>
-          <li class="nav-item"><a class="nav-link" href="adminstock.html">Stock</a></li>
-          <li class="nav-item"><a class="nav-link" href="genre.html">Genre</a></li>
-          <li class="nav-item"><a class="nav-link" href="book.html">Books</a></li>
-          <li class="nav-item"><a class="nav-link" href="topselling.html">Top Selling Items</a></li>
-        </ul>
-
-        <!-- Logout Button -->
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a href="index.html" class="btn btn-outline-light">Logout</a>
-          </li>
-        </ul>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="d-flex flex-column h-100">
+      <div class="d-flex align-items-center px-3 mb-4">
+        <img src="spell-book (1).png" alt="Logo" style="width: 30px;" class="me-2">
+        <span class="fw-medium">BookMart</span>
+      </div>
+      
+      <div class="nav-links flex-grow-1">
+        <a href="adminhome.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span class="ms-2">Dashboard</span>
+        </a>
+        <a href="allorders.html" class="nav-link active">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="ms-2">Orders</span>
+        </a>
+        <a href="adminstock.html" class="nav-link">
+          <i class="fas fa-boxes"></i>
+          <span class="ms-2">Stock</span>
+        </a>
+        <a href="genre.html" class="nav-link">
+          <i class="fas fa-tags"></i>
+          <span class="ms-2">Genres</span>
+        </a>
+        <a href="book.html" class="nav-link">
+          <i class="fas fa-book"></i>
+          <span class="ms-2">Books</span>
+        </a>
+        <a href="topselling.html" class="nav-link">
+          <i class="fas fa-chart-line"></i>
+          <span class="ms-2">Top Selling</span>
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- Content -->
-  <div class="container mt-5 bg-white p-4 rounded shadow">
-    <h2>Update Order Status</h2>
+  <!-- Navbar -->
+  <nav class="admin-navbar navbar navbar-expand-lg">
+    <div class="container-fluid px-4">
+      <button class="sidebar-toggle btn btn-link" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <a class="navbar-brand d-flex align-items-center ms-3" href="adminhome.html">
+        <img src="spell-book (1).png" alt="Logo" style="width: 30px;">
+        <span class="ms-2">BookMart Admin</span>
+      </a>
 
-    <form action="/UpdateOrderStatus" method="POST" class="form-container pt-2">
-      <!-- Hidden OrderId Field -->
-      <input type="hidden" name="OrderId" value="">
-
-      <div class="mb-2">
-        <label for="OrderStatusId">Order Status</label>
-        <select class="form-control mt-2" name="OrderStatusId" id="OrderStatusId">
-          <option value="">Select order status</option>
-          <!-- Dynamically populated options -->
-          <option value="1">Pending</option>
-          <option value="2">Shipped</option>
-          <option value="3">Delivered</option>
-          <option value="4">Cancelled</option>
-        </select>
-        <span class="text-danger" id="OrderStatusIdError"></span>
+      <div class="ms-auto d-flex align-items-center">
+        <div class="dropdown">
+          <button class="btn btn-link text-dark dropdown-toggle" type="button" id="adminDropdown" data-bs-toggle="dropdown">
+            <i class="fas fa-user-circle me-1"></i>
+            <span>Admin</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </nav>
 
-      <button type="submit" class="backbtn btn btn-primary mt-2">Update</button>
-      <a class="backbtn mt-2 btn btn-primary " href="allorders.html">Back</a>
-    </form>
-  </div>
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="order-update-container">
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Order Details Section -->
+          <div class="mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h4>Update Order Status</h4>
+              <span class="badge bg-primary">Order #ORD-001</span>
+            </div>
 
+            <!-- Order Timeline -->
+            <div class="timeline mb-4">
+              <div class="timeline-item">
+                <div class="timeline-icon active">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="mb-1">Order Placed</h6>
+                  <small class="text-muted">May 21, 2025 10:30 AM</small>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon active">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="mb-1">Payment Confirmed</h6>
+                  <small class="text-muted">May 21, 2025 10:35 AM</small>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon active">
+                  <i class="fas fa-box"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="mb-1">Processing</h6>
+                  <small class="text-muted">Current Status</small>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon">
+                  <i class="fas fa-shipping-fast"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="mb-1">Shipped</h6>
+                  <small class="text-muted">Pending</small>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="mb-1">Delivered</h6>
+                  <small class="text-muted">Pending</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Update Form -->
+            <form id="statusUpdateForm">
+              <div class="mb-4">
+                <label class="form-label">Update Status</label>
+                <select class="form-select" id="orderStatus" required>
+                  <option value="">Select new status</option>
+                  <option value="processing">Processing</option>
+                  <option value="shipped">Shipped</option>
+                  <option value="delivered">Delivered</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label">Status Notes (Optional)</label>
+                <textarea class="form-control" rows="3" placeholder="Add any additional notes about this status update"></textarea>
+              </div>
+
+              <!-- Notification Settings -->
+              <div class="notification-settings">
+                <h6 class="mb-3">Notification Settings</h6>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="emailNotification" checked>
+                  <label class="form-check-label" for="emailNotification">
+                    Send email notification to customer
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="smsNotification" checked>
+                  <label class="form-check-label" for="smsNotification">
+                    Send SMS notification to customer
+                  </label>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Update Status</button>
+                <a href="allorders.html" class="btn btn-outline-secondary">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <!-- Order Summary -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h6 class="card-title">Order Summary</h6>
+              <div class="mb-3">
+                <small class="text-muted d-block">Customer</small>
+                <div>John Doe</div>
+                <div class="small text-muted">john@example.com</div>
+              </div>
+              <div class="mb-3">
+                <small class="text-muted d-block">Order Date</small>
+                <div>May 21, 2025 10:30 AM</div>
+              </div>
+              <div class="mb-3">
+                <small class="text-muted d-block">Total Amount</small>
+                <div class="h5 mb-0">₹999</div>
+              </div>
+              <div>
+                <small class="text-muted d-block">Payment Status</small>
+                <span class="badge bg-success">Paid</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Status Preview -->
+          <div class="status-preview">
+            <h6 class="mb-3">Status Update Preview</h6>
+            <div class="preview-content">
+              <p class="text-muted small mb-2">This is how the status will appear to the customer:</p>
+              <div class="alert alert-info mb-0">
+                Your order #ORD-001 is now being processed. We'll notify you when it ships.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Get DOM elements
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
+    const navbar = document.querySelector('.admin-navbar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+
+    // Check localStorage for saved state
+    const isSidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+    
+    // Apply initial state
+    if (isSidebarCollapsed) {
+      sidebar.classList.add('collapsed');
+      mainContent.classList.add('expanded');
+      navbar.classList.add('expanded');
+    }
+
+    // Toggle sidebar
+    sidebarToggle.addEventListener('click', function() {
+      sidebar.classList.toggle('collapsed');
+      mainContent.classList.toggle('expanded');
+      navbar.classList.toggle('expanded');
+      
+      // Save state to localStorage
+      localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+    });
+
+    // Handle responsive behavior
+    function handleResize() {
+      if (window.innerWidth <= 991.98) {
+        sidebar.classList.remove('collapsed');
+        sidebar.classList.remove('active');
+        mainContent.classList.add('expanded');
+        navbar.classList.add('expanded');
+      } else {
+        // Restore saved state on desktop
+        const savedState = localStorage.getItem('sidebarCollapsed') === 'true';
+        if (savedState) {
+          sidebar.classList.add('collapsed');
+          mainContent.classList.add('expanded');
+          navbar.classList.add('expanded');
+        } else {
+          sidebar.classList.remove('collapsed');
+          mainContent.classList.remove('expanded');
+          navbar.classList.remove('expanded');
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+  </script>
 </body>
 </html>

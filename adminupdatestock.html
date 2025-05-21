@@ -1,138 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Stock</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-      padding-top: 55px;
-    }
-
-    .navbar {
-      background-color: #343a40;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    .backbtn {
-      width: 100px;
-    }
-
-    .navbar-brand,
-    .nav-link {
-      color: #fff !important;
-    }
-
-    .container {
-      margin-top: 80px; /* Space for fixed navbar */
-    }
-
-    .form-container {
-      width: 50%;
-    }
-
-    .text-danger {
-      margin-top: 5px;
-    }
-
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scrollbar-width: none; /* For Firefox */
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-    /* From Uiverse.io by csemszepp */ 
-    .container1 {
-      width: 100%;
-      height: 100%;
-      --s: 82px;
-      --c1: #b2b2b2;
-      --c2: #ffffff;
-      --c3: #d9d9d9;
-
-      --_g: var(--c3) 0 120deg, #0000 0;
-      background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
-        conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
-        conic-gradient(
-          from 60deg at calc(200% / 3),
-          var(--c3) 60deg,
-          var(--c2) 0 120deg,
-          #0000 0
-        ),
-        conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
-        linear-gradient(
-          90deg,
-          var(--c1) calc(100% / 6),
-          var(--c2) 0 50%,
-          var(--c1) 0 calc(500% / 6),
-          var(--c2) 0
-        );
-      background-size: calc(1.732 * var(--s)) var(--s);
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Update Stock - BookMart Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
 </head>
-<body class="container1">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <img src="spell-book (1).png" style="width: 35px; margin-right: 10px;" alt="">
-      <a class="navbar-brand" href="adminhome.html"><b>BookMart</b> </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="d-flex flex-column h-100">
+      <div class="d-flex align-items-center px-3 mb-4">
+        <img src="spell-book (1).png" alt="Logo" style="width: 30px;" class="me-2">
+        <span class="fw-medium">BookMart</span>
+      </div>
+      
+      <div class="nav-links flex-grow-1">
+        <a href="adminhome.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span class="ms-2">Dashboard</span>
+        </a>
+        <a href="allorders.html" class="nav-link">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="ms-2">Orders</span>
+        </a>
+        <a href="adminstock.html" class="nav-link active">
+          <i class="fas fa-boxes"></i>
+          <span class="ms-2">Stock</span>
+        </a>
+        <a href="genre.html" class="nav-link">
+          <i class="fas fa-tags"></i>
+          <span class="ms-2">Genres</span>
+        </a>
+        <a href="book.html" class="nav-link">
+          <i class="fas fa-book"></i>
+          <span class="ms-2">Books</span>
+        </a>
+        <a href="topselling.html" class="nav-link">
+          <i class="fas fa-chart-line"></i>
+          <span class="ms-2">Top Selling</span>
+        </a>
+      </div>
 
-      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-        <!-- Sidebar links for small screens -->
-        <ul class="navbar-nav d-lg-none">
-          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="allorders.html">Orders</a></li>
-          <li class="nav-item"><a class="nav-link" href="adminstock.html">Stock</a></li>
-          <li class="nav-item"><a class="nav-link" href="genre.html">Genre</a></li>
-          <li class="nav-item"><a class="nav-link" href="book.html">Books</a></li>
-          <li class="nav-item"><a class="nav-link" href="topselling.html">Top Selling Items</a></li>
-        </ul>
-
-        <!-- Logout Button -->
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a href="index.html" class="btn btn-outline-light">Logout</a>
-          </li>
-        </ul>
+      <div class="mt-auto px-3">
+        <hr>
+        <div class="nav-link">
+          <i class="fas fa-user-circle"></i>
+          <span class="ms-2">Admin</span>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Content -->
-  <div class="container mt-5 bg-white p-4 rounded shadow">
-    <h2>Manage Stock</h2>
-
-    <form action="/stock/managestock" method="POST" class="form-container pt-2">
-      <!-- Hidden BookId Field -->
-      <input type="hidden" name="BookId" value="<!-- Dynamic BookId -->">
-
-      <div class="mb-2">
-        <label for="quantity">Quantity</label>
-        <input type="number" id="quantity" name="Quantity" class="form-control mt-2">
-        <span class="text-danger"><!-- Validation Message for Quantity --></span>
+  <!-- Navbar -->
+  <nav class="admin-navbar navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <button class="sidebar-toggle btn btn-link" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="navbar-brand d-flex align-items-center">
+        <span>Update Stock</span>
       </div>
 
-      <button type="submit" class="backbtn btn btn-primary mt-2">Update</button>
-      <a class="backbtn mt-2 btn btn-primary" href="adminstock.html">Back</a>
-    </form>
-  </div>
+      <div class="ms-auto d-flex align-items-center">
+        <div class="dropdown">
+          <button class="btn btn-link text-dark dropdown-toggle" type="button" id="adminDropdown" data-bs-toggle="dropdown">
+            <i class="fas fa-user-circle me-1"></i>
+            <span>Admin</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-4">
+                <div class="me-4">
+                  <img src="images/1984.jpg" alt="Book" style="width: 80px; height: 120px; object-fit: cover;" class="rounded">
+                </div>
+                <div>
+                  <h5 class="card-title mb-1">1984</h5>
+                  <p class="text-muted mb-0">by George Orwell</p>
+                  <div class="small text-muted mt-1">Fiction</div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div class="stat-card h-100">
+                    <div class="d-flex align-items-center">
+                      <div class="stat-icon bg-warning bg-opacity-10 text-warning me-3">
+                        <i class="fas fa-boxes"></i>
+                      </div>
+                      <div>
+                        <div class="small text-muted mb-1">Current Stock</div>
+                        <h4 class="mb-0">12</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div class="stat-card h-100">
+                    <div class="d-flex align-items-center">
+                      <div class="stat-icon bg-info bg-opacity-10 text-info me-3">
+                        <i class="fas fa-box"></i>
+                      </div>
+                      <div>
+                        <div class="small text-muted mb-1">Minimum Stock</div>
+                        <h4 class="mb-0">20</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card h-100">
+                    <div class="d-flex align-items-center">
+                      <div class="stat-icon bg-primary bg-opacity-10 text-primary me-3">
+                        <i class="fas fa-shopping-cart"></i>
+                      </div>
+                      <div>
+                        <div class="small text-muted mb-1">On Order</div>
+                        <h4 class="mb-0">0</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <form id="updateStockForm">
+                <div class="mb-4">
+                  <label for="operation" class="form-label">Operation</label>
+                  <select class="form-control" id="operation" required>
+                    <option value="">Select operation</option>
+                    <option value="add">Add Stock</option>
+                    <option value="remove">Remove Stock</option>
+                    <option value="adjust">Adjust Stock Level</option>
+                  </select>
+                </div>
+
+                <div class="mb-4">
+                  <label for="quantity" class="form-label">Quantity</label>
+                  <input type="number" class="form-control" id="quantity" min="1" required>
+                </div>
+
+                <div class="mb-4">
+                  <label for="reason" class="form-label">Reason</label>
+                  <select class="form-control" id="reason" required>
+                    <option value="">Select reason</option>
+                    <option value="restock">New Stock Arrival</option>
+                    <option value="damaged">Damaged Items</option>
+                    <option value="return">Customer Return</option>
+                    <option value="correction">Stock Correction</option>
+                  </select>
+                </div>
+
+                <div class="mb-4">
+                  <label for="notes" class="form-label">Notes</label>
+                  <textarea class="form-control" id="notes" rows="3" placeholder="Add any additional notes here..."></textarea>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                  <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='adminstock.html'">
+                    Cancel
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-2"></i>Save Changes
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Get DOM elements
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
+    const navbar = document.querySelector('.admin-navbar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+
+    // Check localStorage for saved state
+    const isSidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+    
+    // Apply initial state
+    if (isSidebarCollapsed) {
+      sidebar.classList.add('collapsed');
+      mainContent.classList.add('expanded');
+      navbar.classList.add('expanded');
+    }
+
+    // Toggle sidebar
+    sidebarToggle.addEventListener('click', function() {
+      sidebar.classList.toggle('collapsed');
+      mainContent.classList.toggle('expanded');
+      navbar.classList.toggle('expanded');
+      
+      // Save state to localStorage
+      localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+    });
+
+    // Handle responsive behavior
+    function handleResize() {
+      if (window.innerWidth <= 991.98px) {
+        sidebar.classList.remove('collapsed');
+        mainContent.classList.add('expanded');
+        navbar.classList.add('expanded');
+      } else {
+        // Restore saved state on desktop
+        const savedState = localStorage.getItem('sidebarCollapsed') === 'true';
+        if (savedState) {
+          sidebar.classList.add('collapsed');
+          mainContent.classList.add('expanded');
+          navbar.classList.add('expanded');
+        } else {
+          sidebar.classList.remove('collapsed');
+          mainContent.classList.remove('expanded');
+          navbar.classList.remove('expanded');
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    // Form submission
+    document.getElementById('updateStockForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Add your form submission logic here
+    });
+  </script>
 </body>
 </html>
